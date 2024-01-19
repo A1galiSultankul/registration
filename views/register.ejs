@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script>
+    function validatePassword() {
+      var password = document.getElementById('password').value;
+      var passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}$/;
+
+      if (!passwordRegex.test(password)) {
+        alert('Password must contain at least 1 uppercase letter, 1 number, and 1 special character. Minimum length: 8 characters.');
+        return false;
+      }
+
+      return true;
+    }
+  </script>
+</head>
+
+<body>
+  <header>
+    <h1>Register</h1>
+  </header>
+  <div class="container">
+    <form action="/register" method="post" onsubmit="return validatePassword()">
+      <label for="username">Username:</label>
+      <input type="text" name="username" required>
+      <br>
+      <label for="password">Password:</label>
+      <input type="password" name="password" id="password" required>
+      <br>
+      <button type="submit">Register</button>
+    </form>
+  </div>
+</body>
+</html>

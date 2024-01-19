@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script>
+    function validateLogin() {
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('password').value;
+
+      // You can add additional client-side validation logic if needed
+
+      // Display alert if username or password is empty
+      if (!username.trim() || !password.trim()) {
+        alert('Please enter both username and password.');
+        return false;
+      }
+
+      return true;
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Login</h1>
+  </header>
+  <div class="container">
+    <!-- Add the onsubmit attribute to trigger the login validation -->
+    <form action="/login" method="post" onsubmit="return validateLogin()">
+      <label for="username">Username:</label>
+      <input type="text" name="username" id="username" required>
+      <br>
+      <label for="password">Password:</label>
+      <input type="password" name="password" id="password" required>
+      <br>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</body>
+</html>
